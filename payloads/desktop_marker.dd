@@ -1,0 +1,26 @@
+REM Desktop marker file.
+DELAY 2500
+IF_WIN
+GUI r
+DELAY 1000
+STRING powershell
+ENTER
+DELAY 1500
+STRING Set-Content (([Environment]::GetFolderPath('Desktop'))+'\BADUSB-TEST.txt') 'BADUSB-TEST authorized demo'
+ENTER
+END_IF
+IF_MAC
+GUI SPACE
+DELAY 800
+STRING terminal
+ENTER
+DELAY 1200
+STRING echo 'BADUSB-TEST authorized demo' > ~/Desktop/BADUSB-TEST.txt
+ENTER
+END_IF
+IF_LINUX
+CTRL ALT t
+DELAY 1200
+STRING echo 'BADUSB-TEST authorized demo' > ~/Desktop/BADUSB-TEST.txt || echo 'BADUSB-TEST authorized demo' > ~/BADUSB-TEST.txt
+ENTER
+END_IF

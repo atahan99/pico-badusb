@@ -1,0 +1,6 @@
+REM Types into focused Android field / search.
+DELAY 2000
+IF_ANDROID
+STRING BadUSB demo - authorized test only
+ENTER
+END_IF

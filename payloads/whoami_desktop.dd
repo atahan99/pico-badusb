@@ -1,0 +1,26 @@
+REM whoami + hostname to a text file.
+DELAY 2500
+IF_WIN
+GUI r
+DELAY 1000
+STRING powershell
+ENTER
+DELAY 1500
+STRING $d=[Environment]::GetFolderPath('Desktop'); whoami | Out-File $d\BADUSB-WHOAMI.txt; hostname | Out-File $d\BADUSB-WHOAMI.txt -Append; notepad $d\BADUSB-WHOAMI.txt
+ENTER
+END_IF
+IF_MAC
+GUI SPACE
+DELAY 800
+STRING terminal
+ENTER
+DELAY 1200
+STRING (whoami; hostname) > ~/Desktop/BADUSB-WHOAMI.txt && open -e ~/Desktop/BADUSB-WHOAMI.txt
+ENTER
+END_IF
+IF_LINUX
+CTRL ALT t
+DELAY 1200
+STRING (whoami; hostname) > ~/Desktop/BADUSB-WHOAMI.txt 2>/dev/null || (whoami; hostname) > ~/BADUSB-WHOAMI.txt; (xdg-open ~/Desktop/BADUSB-WHOAMI.txt || xdg-open ~/BADUSB-WHOAMI.txt || cat ~/BADUSB-WHOAMI.txt)
+ENTER
+END_IF

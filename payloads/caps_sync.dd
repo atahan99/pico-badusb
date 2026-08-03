@@ -1,0 +1,27 @@
+REM Caps Lock sync demo (hosts that mirror Caps LED).
+DELAY 2000
+IF_WIN
+GUI r
+DELAY 1000
+STRING notepad
+ENTER
+DELAY 1200
+STRINGLN CAPS SYNC DEMO
+STRINGLN Turn Caps Lock ON to continue...
+WAIT_FOR_CAPS_ON
+STRINGLN Caps detected ON.
+STRINGLN Turn Caps Lock OFF to finish...
+WAIT_FOR_CAPS_OFF
+STRINGLN Caps detected OFF. Demo complete.
+END_IF
+IF_LINUX
+CTRL ALT t
+DELAY 1200
+STRINGLN echo CAPS SYNC DEMO
+STRINGLN echo Turn Caps Lock ON...
+WAIT_FOR_CAPS_ON
+STRINGLN echo Caps ON
+STRINGLN echo Turn Caps Lock OFF...
+WAIT_FOR_CAPS_OFF
+STRINGLN echo Caps OFF done
+END_IF

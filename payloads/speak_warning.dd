@@ -1,0 +1,26 @@
+REM Spoken warning (needs TTS on host).
+DELAY 2500
+IF_WIN
+GUI r
+DELAY 1000
+STRING powershell
+ENTER
+DELAY 1500
+STRING Add-Type -AssemblyName System.Speech;(New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('USB keyboard demo')
+ENTER
+END_IF
+IF_MAC
+GUI SPACE
+DELAY 800
+STRING terminal
+ENTER
+DELAY 1200
+STRING say 'Unauthorized USB keyboard demo. Lock your screen.'
+ENTER
+END_IF
+IF_LINUX
+CTRL ALT t
+DELAY 1200
+STRING spd-say 'USB keyboard demo' || espeak 'USB keyboard demo' || echo 'USB keyboard demo'
+ENTER
+END_IF

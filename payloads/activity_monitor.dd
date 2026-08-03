@@ -1,0 +1,8 @@
+REM Activity Monitor (macOS).
+DELAY 2500
+IF_MAC
+GUI SPACE
+DELAY 800
+STRING activity monitor
+ENTER
+END_IF

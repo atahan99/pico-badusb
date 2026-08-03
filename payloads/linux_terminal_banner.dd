@@ -1,0 +1,8 @@
+REM Loud terminal banner (Linux).
+DELAY 2500
+IF_LINUX
+CTRL ALT t
+DELAY 1200
+STRING clear; printf '\n*** AUTHORIZED BADUSB DEMO ***\n\n'; whoami; date
+ENTER
+END_IF

@@ -1,0 +1,24 @@
+REM YouTube rickroll.
+DELAY 2500
+IF_WIN
+GUI r
+DELAY 1000
+STRING https://www.youtube.com/watch?v=dQw4w9WgXcQ
+ENTER
+END_IF
+IF_MAC
+GUI SPACE
+DELAY 800
+STRING https://www.youtube.com/watch?v=dQw4w9WgXcQ
+ENTER
+END_IF
+IF_LINUX
+ALT F2
+DELAY 800
+STRING xdg-open https://www.youtube.com/watch?v=dQw4w9WgXcQ
+ENTER
+END_IF
+IF_ANDROID
+STRING https://www.youtube.com/watch?v=dQw4w9WgXcQ
+ENTER
+END_IF

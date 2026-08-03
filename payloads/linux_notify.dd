@@ -1,0 +1,8 @@
+REM Desktop notification (Linux / notify-send).
+DELAY 2500
+IF_LINUX
+CTRL ALT t
+DELAY 1200
+STRING notify-send 'BadUSB' 'Authorized USB keyboard demo' || echo 'BadUSB authorized demo'
+ENTER
+END_IF

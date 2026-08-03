@@ -1,0 +1,5 @@
+REM Full-screen screenshot (macOS).
+DELAY 2500
+IF_MAC
+SHIFT GUI 3
+END_IF
