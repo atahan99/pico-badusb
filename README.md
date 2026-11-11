@@ -18,8 +18,9 @@ Force OS with `os.txt` or `./tools/deploy.sh <name> win|mac|linux|android`. With
 ./tools/deploy.sh rickroll android
 ```
 
-`boot.py` hides CIRCUITPY → later deploys use mpremote.  
-**Pico W / 2 W:** AP `PicoBadUSB` / `badusb1234` → `http://192.168.4.1/`
+`boot.py` hides CIRCUITPY → later deploys use mpremote. On every Pico variant `payload.dd` auto-runs on plug-in; to change it, re-deploy over USB.
+
+Validate payloads before deploying:
 
 ```bash
 python3 tools/check_dd.py

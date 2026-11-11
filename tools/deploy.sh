@@ -44,13 +44,8 @@ deploy_fs() {
   cp -X "$ROOT/firmware/boot.py" "$dest/boot.py"
   cp -X "$ROOT/firmware/code.py" "$dest/code.py"
   cp -X "$ROOT/firmware/ducky.py" "$dest/ducky.py"
-  cp -X "$ROOT/firmware/wifi_ap.py" "$dest/wifi_ap.py"
   cp -X "$SRC_DD" "$dest/payload.dd"
   write_os "$dest"
-  if [[ ! -f "$dest/secrets.py" && -f "$ROOT/firmware/secrets.example.py" ]]; then
-    cp -X "$ROOT/firmware/secrets.example.py" "$dest/secrets.py"
-    echo "wrote default secrets.py (edit SSID/password for Pico W)"
-  fi
   echo "deployed $NAME -> $dest/payload.dd (filesystem)"
 }
 
@@ -63,7 +58,6 @@ deploy_mpremote() {
   mpremote connect auto cp "$ROOT/firmware/boot.py" :boot.py
   mpremote connect auto cp "$ROOT/firmware/code.py" :code.py
   mpremote connect auto cp "$ROOT/firmware/ducky.py" :ducky.py
-  mpremote connect auto cp "$ROOT/firmware/wifi_ap.py" :wifi_ap.py
   mpremote connect auto cp "$SRC_DD" :payload.dd
   if [[ -n "$OS_FORCE" ]]; then
     printf '%s\n' "$OS_FORCE" > /tmp/pico-os.txt

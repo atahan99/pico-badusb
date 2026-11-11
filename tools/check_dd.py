@@ -37,6 +37,13 @@ for path in sorted(PAYLOADS.glob("*.dd")):
         if not line:
             continue
         head = line.split(None, 1)[0].upper()
+        if head in ("DELAY", "DEFAULT_DELAY", "DEFAULTDELAY"):
+            parts = line.split(None, 1)
+            try:
+                (float if head == "DELAY" else int)(parts[1].strip())
+            except (IndexError, ValueError):
+                errors.append(f"{path.name}:{i}: {head} needs a numeric value")
+            continue
         if any(head == p or line.upper().startswith(p + " ") or line.upper() == p for p in PREFIXES):
             continue
         for p in line.replace("-", " ").split():
